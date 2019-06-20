@@ -37,6 +37,19 @@ app.get('/', (req, res) => {
   })
 })
 
+// search
+app.get('/search', (req,res) => {
+  Restaurant.find((err, restaurants) => {
+    const keyword = req.query.keyword
+    const hasStr = (target, str) => target.toLowerCase().includes(str.toLowerCase())
+    if (err) return console.error(err)
+    const restaurant = restaurants.filter(({name, name_en, category}) => {
+      return [name, name_en, category].some(str => hasStr(str, keyword))
+    })   
+    return res.render('index', {restaurants: restaurant})
+  })
+})
+
 // 新增餐廳頁面
 app.get('/restaurants/new', (req, res) => {
   res.render('new')
@@ -50,7 +63,7 @@ app.get('/restaurants/:id', (req, res) => {
   })
 })
 
-// 新增一筆餐廳
+// 新增一個餐廳
 app.post('/restaurants', (req, res) => {
   const restaurant = Restaurant({
     name: req.body.name,
@@ -63,14 +76,13 @@ app.post('/restaurants', (req, res) => {
     rating: req.body.rating,
     description: req.body.description
   })
-
   restaurant.save(err => {
     if (err) return console.error(err)
     return res.redirect('/')
   })
 })
 
-// 編輯頁面
+// 編輯餐廳頁面
 app.get('/restaurants/:id/edit', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
@@ -78,20 +90,11 @@ app.get('/restaurants/:id/edit', (req, res) => {
   })
 })
 
-// 編輯
+// 編輯餐廳
 app.post('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
-    restaurant.name = req.body.name
-    restaurant.name_en = req.body.name_en
-    restaurant.category = req.body.category
-    restaurant.image = req.body.image
-    restaurant.location = req.body.location
-    restaurant.phone = req.body.phone
-    restaurant.google_map = req.body.google_map
-    restaurant.rating = req.body.rating
-    restaurant.description = req.body.description
-
+    Object.assign(restaurant, req.body)
     restaurant.save(err => {
       if (err) return console.error(err)
       return res.redirect(`/restaurants/${req.params.id}`)
@@ -99,7 +102,7 @@ app.post('/restaurants/:id', (req, res) => {
   })
 })
 
-// 刪除
+// 刪除餐廳
 app.post('/restaurants/:id/delete', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)

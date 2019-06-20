@@ -1,8 +1,7 @@
 <h1 class="mb-1 restaurant-show-title">修改{{restaurant.name}}</h1>
 <div class="container">
   <form action="/restaurants/{{restaurant.id}}" method="POST">
-    <!-- 餐廳名稱 -->
-    <!-- category -->
+    <!-- 餐廳名稱、categor -->
     <div class="form-group row">
       <label class="col">
         餐廳中文名稱:
@@ -13,9 +12,7 @@
         <input type="text" class="form-control" name="name_en" placeholder="English Name" value="{{restaurant.name_en}}">
       </label>
     </div>
-    <!-- location -->
-    <!-- phone -->
-    <!-- rating -->
+    <!-- location、phon、rating -->
     <div class="form-group row">
       <label class="col">
         類別:
@@ -38,9 +35,7 @@
         <input type="text" class="form-control" name="google_map" placeholder="Google Map URL" value="{{restaurant.google_map}}">
       </label>
     </div>
-    <!-- image -->
-    <!-- google_map -->
-    <!-- description -->
+    <!-- image、google_map、description -->
     <div class="form-group row">
       <label class="col">
         評分:
