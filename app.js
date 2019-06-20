@@ -17,10 +17,13 @@ db.on('error', () => {
 db.once('open', () => {
   console.log('mongoose connected')
 })
+// setting static page
+app.use(express.static('public'))
 
 // setting handlebars
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
+
 
 // body-parser
 const bodyParser = require('body-parser')
@@ -30,17 +33,40 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   Restaurant.find((err, restaurants) => {
     if (err) return console.error(err)
-    console.log(req.body)
     return res.render('index', {restaurants: restaurants})
   })
+})
+// 新增餐廳頁面
+app.get('/restaurants/new', (req, res) => {
+  res.render('new')
 })
 
 // detail
 app.get('/restaurants/:id', (req, res) => {
   Restaurant.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
-    console.log(req.params.id)
     return res.render('detail', {restaurant: restaurant})
+  })
+})
+
+
+// 新增一筆餐廳
+app.post('/restaurants', (req, res) => {
+  const restaurant = Restaurant({
+    name: req.body.name,
+    name_en: req.body.name_en,
+    category: req.body.category,
+    image: req.body.image,
+    location: req.body.location,
+    phone: req.body.phone,
+    google_map: req.body.google_map,
+    rating: req.body.rating,
+    description: req.body.description
+  })
+
+  restaurant.save(err => {
+    if (err) return console.error(err)
+    return res.redirect('/')
   })
 })
 

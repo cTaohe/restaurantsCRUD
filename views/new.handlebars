@@ -1,0 +1,62 @@
+<h1 class="mb-1 restaurant-show-title">新增餐廳</h1>
+<div class="container">
+  <form action="/restaurants" method="POST">
+    <!-- 餐廳名稱 -->
+    <!-- category -->
+    <div class="form-group row">
+      <label class="col">
+        餐廳中文名稱:
+        <input type="text" class="form-control" name="name" placeholder="中文名稱">
+      </label>
+      <label class="col">
+        餐廳英文名稱:
+        <input type="text" class="form-control" name="name_en" placeholder="English Name">
+      </label>
+    </div>
+    <!-- location -->
+    <!-- phone -->
+    <!-- rating -->
+    <div class="form-group row">
+      <label class="col">
+        類別:
+        <input type="text" class="form-control" name="category" placeholder="美式">
+      </label>
+      <label class="col">
+        電話:
+        <input type="text" class="form-control" name="phone" placeholder="02 0000 0000">
+      </label>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        地址:
+        <input type="text" class="form-control" name="location" placeholder="地址">
+      </label>
+    </div>
+    <div class="form-group row">
+      <label class="col">
+        Google Map:
+        <input type="text" class="form-control" name="google_map" placeholder="Google Map URL">
+      </label>
+    </div>
+    <!-- image -->
+    <!-- google_map -->
+    <!-- description -->
+    <div class="form-group row">
+      <label class="col">
+        評分:
+        <input type="number" class="form-control" name="rating" min="1" max="5" placeholder="1-5">
+      </label>
+      <label class="col">
+        圖片:
+        <input type="text" class="form-control" name="image" placeholder="http://example.com/image/image.jpg">    
+      </label>
+    </div>
+    <div class="form-group">
+      <label>描述</label>
+      <textarea class="form-control" name="description" placeholder="description"></textarea>
+    </div>
+
+      <button type="submit" class="btn btn-primary mr-2">新增</button>
+      <a href="/" class="btn btn-danger">取消</a>
+  </form>
+</div>
