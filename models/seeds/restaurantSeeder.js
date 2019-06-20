@@ -12,10 +12,9 @@ db.once('open', () => {
   console.log('db connected')
   for (let item of restaurant) {
     Restaurant.create({
-      id: item.id,
       name: item.name,
       name_en: item.name_en,
-      category: item.image,
+      category: item.category,
       image: item.image,
       location: item.location,
       phone: item.phone,
