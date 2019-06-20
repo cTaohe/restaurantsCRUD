@@ -33,7 +33,12 @@
       <p class="mb-5">
         {{ restaurant.description }}
       </p>
-      <img class="rounded mx-auto d-block mb-4 w-100" src="{{ restaurant.image }}" alt="{{ restaurant.name }}" style="max-width: 600px;">
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{ restaurant.image }}" alt="{{ restaurant.name }}"
+        style="max-width: 600px;">
+      <div class="text-center">
+        <a href="/restaurants/{{ restaurant.id }}/edit" class="btn btn-primary">Edit</a>
+        <a href="#" class="btn btn-danger">Delete</a>
+      </div>
     </div>
   </div>
 </div>
