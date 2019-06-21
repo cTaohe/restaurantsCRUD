@@ -5,7 +5,8 @@
       <form action="/search">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
-          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." value="{{ keyword }}" aria-describedby="search-button">
+          <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
+            value="{{ keyword }}" aria-describedby="search-button">
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
@@ -27,7 +28,7 @@
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{ this.name }}</h6>
               <div class="restaurant-category mb-1">
-                  <i class="fas fa-utensils pr-2"></i>{{ this.category }}
+                <i class="fas fa-utensils pr-2"></i>{{ this.category }}
               </div>
               <span class="badge badge-pill badge-danger font-weight-normal">
                 {{ this.rating }}
@@ -38,7 +39,27 @@
           <div class="card-footer text-right">
             <a href="/restaurants/{{ this.id }}/edit" class="btn btn-primary">編輯</a>
             <form action="/restaurants/{{ this.id }}/delete" method="post" style="display: inline;">
-              <button type="submit" class="btn btn-danger">刪除</button>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{ this.id }}">刪除</button>
+              <!-- Modal -->
+              <div class="modal fade" id="delete{{ this.id }}" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 class="modal-title text-danger" id="exampleModalLabel">這是一個刪除動作</h2>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body text-center">
+                      你將要刪除 <span class="text-danger">"{{ this.name }}"<span>。
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                      <button type="submit" class="btn btn-danger">確認刪除</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
