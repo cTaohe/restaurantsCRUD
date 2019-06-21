@@ -1,0 +1,57 @@
+# 我的餐廳清單
+
+## 安裝環境
+
+- Windows 10
+- Node.js
+- Express
+- Express-handlebars
+- Mongoose
+- body-parser
+- nodemon
+
+## 下載及安裝
+
+### 安裝
+
+安裝 [MongoDB](https://www.mongodb.com/download-center/community)
+
+安裝專案
+```
+nvm install 10.15.3
+git clone https://github.com/cTaohe/restaurantsCRUD.git
+npm install
+```
+
+在 restaurantsCRUD/models/seeds/ 產生種子檔案
+
+```
+cd restaurantsCRUD/models/seeds
+node restaurantSeeder.js
+```
+
+### 執行
+
+在 restaurantsCRUD 資料夾下
+```
+npm run dev
+```
+在 Browser 網址輸入 `localhost:3000` ，就可以在瀏覽器觀看。
+
+## 功能
+
+- 搜尋餐廳名稱、英文名稱、類型
+- 點選圖片顯示詳細資訊
+- 新增餐廳
+- 編輯餐廳
+- 刪除餐廳
+
+## 畫面
+主畫面
+![image](https://lh3.googleusercontent.com/lBsG_JWhk5wZC65fMMl9Z9yG5nmeu_eix7_wOAqa4a46-xR3MJlalpfXDopUwr4iaq5-jd53yR1eKwQejUU3FLkoKw_QHpQ1mc5iBo8F3XJKXXbdoZVG8fJv1X7KjAMEw3XIax3iszXTlhsx6v5OMJAzrOS-9qvq8W9vnkRJVk-vNShbj07FkCMjk0dRwvPj3IxiKMu9oX6cKE1ptmCsq53Byy-HWaXCA2SGMzUjkz6SUkdHNNjgJ5PhMPZ8qCNOvicmxdxjKGZPBQj_cGDKyVidWC07ZpqNq8qQCqNDeC7XjCYCj7lZJ-ZJga-nnNRl83iACReCcx-FolsSHJxUjIpoNEqyTQal9lWSTfHy0AlLG-_LW817iXD7-KHc_mBaKRIwSdqu5gpq6B822WTMC54G2ebcKCiKR9SVFjAihcvAcyyvrwnX-rEql_N512jmSv0U4y8MmwMetX9zgi3-utBxWqfEnRQN9c77YvCyYaBAkbryz6W_Z2jBTsrjW1w3OciQ2uN4pUdhEGxmQHV9tLLIXQupZL0h-EWE1CSBJuF-je6pDIkTSskht2dHAiRUMjSRvsBvsJXpxrCB3w_vqqyMl6-YVRmr6cpj2uSNxaNmPx0smpDXWHRIYeyFr50T0LyXt80igGNqMFG_UIrhzOmXSVmQlZpA0-gAPcTT7IPm6M-GrSVzncuRmbKFQWxDjAaLmtSqXhtHq_h42-JC4lBt=w895-h969-no)
+
+詳細資料
+![image](https://lh3.googleusercontent.com/_Fy6YrsQhbJW1B9jBE4SIxAwKOPcMCt0uUtgXDjR9RZFoiKog_SieQFs71h07jr9wELENywc3MlNFMchafeOy40IimEY5puhF7kk48Bamok9-Pxamdpu9qA2p50rftuaL8DZRE-eYCn2xRMqOoaC2AV96EdN2dFV_5uULM4bgueZbtSfnk5uJlw8GI_eZkP5D-jrKv69RYlXvI-LHTDgnE5oxWUxJiY9jLP3AckZBeInOpeOEsclWYy6aaoeACwHZSGsRhZeZudvzfZxkG6JEQ9R7VpwWxK0YPJhFtKWssdPYVYloWRKgX7RQft5QwVgAfreJKjNoa8cPAT5OK02gV1BXW5WAdUgGvI1h18IP5sY0t7_BvOlwrj08ww4dZl2LY6IEKq96b2TdWG7Z_689ZH5ylEGyLB9rhCZr_fAKGkqexv1AXROF_dEw_dWfr5TcWReNz3R2GTNSdsphuyQIE1Bf3S2DKCNbsdSbg2_gDihnmiXCMBi27Dd-950SdabX_gkMZ0Nr_sOuf3bD-lsofHPcnqEByMqQvFImm4OnoYDtqMxi8VNkH29rNCH46AZ_nOL2J33RO7TtRMmxMFEzx-QLEPa8Du_WpKq9_eyTWTpTnzMxqtxU_5gXBPKFrz8kWS4cUI6hYzGBnZnguXXVfhlwuKVCU-czop0stFx6dT3hEwhTyba_ef8DefcCJC0at-bVTo0jFgMgNf1Uu-stv-A=w895-h969-no)
+
+搜尋畫面
+![image](https://lh3.googleusercontent.com/b4fEdxcnsOEJLefuFjX5fKQsR9dFPaFQKEDPSZvqLYvJ9q0CIGI0oJPyfPt_pUHjGFLMsAH6CdNdAL_byyE4vWdoPTmPZH_5ZloGb_7cEh1KNzl_9DGZwQ3OsmtSbybUduVwJFIpu5-TiOlEFPOLDhlpRRSY4bcaQfFfMZQVecGXsiNg9SSg2rr5NtEClZZ52VrCzvk1cHlxOyviVjSyyrC7cf2GxZLG28ViJCLT0Om7xpw3IMxiSVdT-OnlAt5WFfyKALvcvT3SXsc2Sdone3wl4ceLUc1mR8739TRx-OBYz3gO5sjUE4mQ_Xpow4C7VyAJPvpekws7ACRgz71y3H_2FCG53NrFFTp2fTJGKWju_m8rSvvin6n7RA2_iUZXxvL6BEfryotfHKftk_GENJc6ONp2HUcm-u8zyGD24TrKOa2WUwF2woEEOPGX5mzG4Bw5InHSAnPRXTZIE5hB_VksTD9pbrcwEHv2G7aIaPDFXWVMgedzEcCnQ5MdoDi-Tx9YIhl9yim9dJtjENJkMqjK_7YUgLhIWPhFwpKTt4UXo9mcKGI8Hg-7-HfKkbxnwse7TyfwvnhA4WvVrsiKFuXZPJZ-bT3ZnFUjhRkvjPysR1eOHlqMp824vQ-s5Ksnk15KizFMsxjGRtfh9UQ5W_h2TVlApX3uSODubA2VV_7rOaj4eedgcKV7ceSri-4-yVjJW0lt8Oh5FH968qLl7pcJ=w895-h969-no)
